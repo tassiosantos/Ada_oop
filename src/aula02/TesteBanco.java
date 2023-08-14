@@ -2,6 +2,7 @@ package aula02;
 
 import com.sun.security.jgss.GSSUtil;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TesteBanco {
@@ -28,19 +29,22 @@ public class TesteBanco {
                 case(4):
                     getAccount(scan);
                     break;
+                default:
+                    System.out.println("Favor digitar um valor válido");
             }
         }
 
 
 
     }
-    private static int receberEscolha(Scanner scan) throws IllegalArgumentException {
+    private static int receberEscolha(Scanner scan) throws InputMismatchException {
         try{
             int escolha = scan.nextInt();
             return escolha;
         }
         catch (Exception e){
             System.out.println("Favor digitar um valor válido");
+            scan.next();
             return -1;
         }
      }
@@ -60,7 +64,7 @@ public class TesteBanco {
         String nome = scan.next();
         System.out.println("Digite o CPF do cliente");
         String cpf = scan.next();
-        System.out.println("Digite o emaill do cliente");
+        System.out.println("Digite o email do cliente");
         String email = scan.next();
         return new Cliente(nome, cpf, email);
         }
