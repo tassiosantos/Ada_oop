@@ -40,6 +40,14 @@ public class PratoRespository {
         return pratosDoRestaurante;
     }
 
+    public Prato getPratoById(int pratoId){
+        for (Prato prato: pratos) {
+            if(prato.getPratoId() == pratoId)
+                return prato;
+        }
+        return null;
+    }
+
 
 
 

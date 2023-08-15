@@ -21,4 +21,18 @@ public class PedidoRepository {
     public ArrayList<Pedido> getPedidos() {
         return pedidos;
     }
+
+    public ArrayList<Pedido> getPedidosByRestaurante(int restauranteId){
+        ArrayList<Pedido> pedidosRestaurante = new ArrayList<>();
+        for (Pedido pedido: pedidos) {
+            if(pedido.getRestauranteId() == restauranteId){
+                pedidosRestaurante.add(pedido);
+            }
+
+        }
+
+        return pedidosRestaurante;
+    }
+
+
 }

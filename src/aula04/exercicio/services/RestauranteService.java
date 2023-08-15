@@ -28,6 +28,6 @@ public class RestauranteService {
     }
 
     public ArrayList<Prato> listarPratosByRestaurante(Restaurante restaurante){
-        return restaurante.getPratos();
+        return restauranteRepository.getRestauranteById(restaurante.getRestauranteId()).getPratos();
     }
 }

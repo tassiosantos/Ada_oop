@@ -20,9 +20,11 @@ public class PratoController {
     }
 
 
-    public String adicionarPrato(){
-        if(restauranteService.listarRestaurantes().isEmpty())
-            return "Lista de restaurante vazia. Favor adicionar algum restaurante.";
+    public Prato adicionarPrato(){
+        if(restauranteService.listarRestaurantes().isEmpty()) {
+            System.out.println("Lista de restaurante vazia. Favor adicionar algum restaurante.");
+            return null;
+        }
         System.out.println("_________________________________________________");
         System.out.println("Lista de restaurantes:");
         for(Restaurante restaurante: this.restauranteService.listarRestaurantes()){
@@ -31,18 +33,22 @@ public class PratoController {
         }
         System.out.println("Qual id do restaurante?");
         int restauranteId = scan.nextInt();
+        scan.nextLine();
         System.out.println("Digite o nome do prato:");
-        String nome = scan.next();
+        String nome = scan.nextLine();
         System.out.println("Digite a descrição do prato:");
-        String descricao = scan.next();
+        String descricao = scan.nextLine();
         System.out.println("Digite o preço do prato:");
+//        scan.nextDouble();
         double preco = scan.nextDouble();
-
-        return pratoService.adicionarPrato(nome, preco, descricao, restauranteId).toString() + "\nAdicionado";
+        Prato prato = pratoService.adicionarPrato(nome, preco, descricao, restauranteId);
+//        restauranteService.buscarRestaurante(restauranteId).
+        System.out.println(prato.toString() + "\nAdicionado");
+        return prato;
 
     }
 
-    public ArrayList<Prato> listarPratosByRestaurante(Restaurante restaurante){
+    public ArrayList<Prato> listarPratosByRestaurante(){
         if(restauranteService.listarRestaurantes().isEmpty()) {
             System.out.println("Lista de restaurante vazia. Favor adicionar algum restaurante.");
             return null;
@@ -57,12 +63,20 @@ public class PratoController {
         int restauranteId = scan.nextInt();
         System.out.println();
         ArrayList<Prato> pratos = pratoService.listarPratosByRestaurante(restauranteService.buscarRestaurante(restauranteId));
-        for (Prato prato: pratos) {
-            System.out.println(prato.toString());
+        if(pratos == null){
+            System.out.println("Lista de pratos vazia");
+            return null;
+        }else{
+            for (Prato prato: pratos) {
+                System.out.println(prato.toString());
+            }
+            return pratos;
         }
-        return pratos;
+
 
     }
+
+
 
 
 }

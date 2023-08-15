@@ -13,10 +13,24 @@ public class PedidoService {
     public PedidoService(){pedidoRepository = new PedidoRepository();}
 
 
-    public Pedido adicionarPedido(String nomeRestaurante, ArrayList<Prato> nomePratos, ArrayList<Integer> qtdPratos){
-        return pedidoRepository.add(new Pedido(nomeRestaurante, nomePratos, qtdPratos));
+    public Pedido adicionarPedido(String nomeRestaurante, ArrayList<Prato> nomePratos, ArrayList<Integer> qtdPratos, int restauranteId){
+        return pedidoRepository.add(new Pedido(nomeRestaurante, nomePratos, qtdPratos, restauranteId));
 
     }
+
+    public Pedido adicionarPedido(Pedido pedido){
+        return pedidoRepository.add(pedido);
+    }
+
+    public ArrayList<Pedido> listarPedidosRestaurante(int restauranteId){
+        return pedidoRepository.getPedidosByRestaurante(restauranteId);
+
+    }
+
+    public ArrayList<Pedido> listarPedidos(){
+        return pedidoRepository.getPedidos();
+    }
+
 
 
 }

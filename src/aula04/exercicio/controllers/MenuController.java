@@ -20,7 +20,8 @@ public class MenuController {
 
     public void pedidoMenu(){
         System.out.println("1 - Fazer pedido");
-        System.out.println("2 - Listar pedidos");
+        System.out.println("2 - Listar pedidos de um restaurante");
+        System.out.println("3 - Listar todos os pedidos");
 
     }
 }

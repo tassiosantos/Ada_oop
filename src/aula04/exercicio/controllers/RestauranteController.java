@@ -19,9 +19,9 @@ public class RestauranteController {
 
     public Restaurante novoRestaurante(){
         System.out.println("Qual nome do novo restaurante?");
-        String nome = scan.next();
+        String nome = scan.nextLine();
         System.out.println("Digite o endereço do restaurante:");
-        String endereco = scan.next();
+        String endereco = scan.nextLine();
         Restaurante restaurante = restauranteService.adicionarRestaurante(nome, endereco);
         System.out.println(restaurante.toString() +  "\nAdicionado");
         return restaurante;

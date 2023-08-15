@@ -26,14 +26,16 @@ public class SistemaRestaurante {
                     int opcaoRestaurante = scan.nextInt();
                     switch (opcaoRestaurante){
                         case(1):
-                            System.out.println(restauranteController.novoRestaurante());
+                            restauranteController.novoRestaurante();
                             break;
                         case(2):
                             restauranteController.listarRestaurantes();
                             break;
                         case(3):
-                            System.out.println(pratoController.adicionarPrato());
+                            pratoController.adicionarPrato();
                             break;
+                        case(4):
+                            pratoController.listarPratosByRestaurante();
                     }
                     break;
                 case(2):
@@ -41,10 +43,13 @@ public class SistemaRestaurante {
                     int opcaoPedido = scan.nextInt();
                     switch (opcaoPedido){
                         case(1):
-                            System.out.println(pedidoController.fazerPedido());
+                            pedidoController.fazerPedido();
                             break;
                         case(2):
-                            System.out.println(pedidoController.listarPedidos());
+                            pedidoController.listarPedidosByRestaurante();
+                            break;
+                        case(3):
+                            pedidoController.listarPedidos();
                             break;
                     }
                     break;

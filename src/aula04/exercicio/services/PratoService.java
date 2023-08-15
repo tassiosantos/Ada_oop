@@ -10,7 +10,7 @@ public class PratoService {
 
     private static PratoRespository pratoRespository;
     public PratoService(){
-
+        pratoRespository = new PratoRespository();
     }
 
     public Prato adicionarPrato(String nome, double preco, String descricao, int restauranteId){
@@ -27,6 +27,9 @@ public class PratoService {
     }
 
 
+    public Prato buscarPrato(int pratoId){
+        return pratoRespository.getPratoById(pratoId);
+    }
 
 
 }
